@@ -6,11 +6,11 @@
 
 # AI PM Toolkit
 
-The `ai-pm-toolkit` is a comprehensive, production-ready GitHub repository designed for solo PMs, startup PMs, and aspiring PMs learning AI-native workflows. The modern PM's bottleneck is no longer implementation, but knowing what to build and being able to articulate it clearly enough for agents to act on. This toolkit provides the essential resources to master the core skills of the AI-era PM: problem shaping, context curation, and evaluation and taste, empowering you to effectively collaborate with AI agents and ship better products.
+The `ai-pm-toolkit` is a comprehensive GitHub repository designed primarily for Product Managers who are looking to adopt an AI native workflow. The modern PM's bottleneck is quickly moving away from the cycle of translating requirements that get handed off to developers, reviewing, and then iterating on them, to PM's who are able to quickly prototype and validate themselves. This toolkit provides resources to quicky help you adopt the core skills of the AI-era PM: problem shaping, context curation, and evaluation, empowering you to effectively collaborate with AI agents and ship better products.
 
 ## Philosophy
 
-You do not need to adopt everything here to get value out of this toolkit. Our approach is fundamentally modular—grab exactly what you need for the problem at hand and leave the rest. Whether you're looking to refine how you shape a problem, need a better context document to ground your AI agent, or want a structured workflow for going from discovery to an actionable spec, you can integrate these pieces into your existing process. The goal is to augment your PM skills, not to force you into a rigid new framework.
+You do not need to adopt everything here to get value out of this toolkit. The approach is fundamentally modular—grab exactly what you need for the problem at hand and leave the rest. Whether you're looking to refine how you shape a problem, need a better context document to ground your AI agent, or want a structured workflow for going from discovery to an actionable spec, you can integrate these pieces into your existing process. The goal is to augment your PM skills, not to force you into a rigid new framework. Feel free to add or remove things here depending on your needs and workflow as this will be different for everyone.
 
 ## Directory Map
 
