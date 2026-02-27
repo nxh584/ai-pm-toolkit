@@ -6,9 +6,9 @@
 
 # AI PM Toolkit
 
-A practical toolkit for Product Managers who want to work effectively with AI agents. It gives you the prompts, templates, context documents, and structured workflows to move faster — from problem definition through to working prototypes — without needing to write code yourself.
+A practical toolkit for Product Managers who want to work effectively with AI agents. It gives you the prompts, templates, context documents, and structured workflows to move faster. From problem definition through to working prototypes without needing to write code yourself.
 
-The bottleneck for modern PMs is shifting. The old cycle of writing specs, handing them off, and waiting for reviews is being replaced by something faster: PMs who can shape problems precisely, give agents the right context, and evaluate output critically. This toolkit helps you build exactly those skills.
+There's a shift in the product management landscape. The old cycle of writing specs, handing them off, and waiting for reviews is being replaced by something faster: PMs who can shape problems precisely, give agents the right context, and evaluate output critically. This toolkit helps you build exactly those skills and incorporate them into your daily workflow. Take what you need to improve your process, don't feel obligated to use everything. This is a living document and will be updated regularly as the landscape evolves.
 
 ---
 
@@ -102,7 +102,7 @@ The three core skills it's designed to strengthen are:
 - **Context curation** — giving the agent the right background so it doesn't have to guess (and guess wrong).
 - **Evaluation** — knowing how to judge agent output critically and iterate toward something useful.
 
-These compound. PMs who work through this toolkit consistently find the workflow starts to feel more natural than the old way within a week or two.
+These will compound and this workflow will start to feel more natural than the old way very quickly.
 
 ---
 
