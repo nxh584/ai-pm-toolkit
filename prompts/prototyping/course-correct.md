@@ -17,7 +17,7 @@ Current output/code:
 [INSERT CURRENT OUTPUT OR CODE]
 
 Start by asking me:
-"What came out, and what's off about it? Don't tell me what you want instead yet — tell me what's wrong with what you got."
+"What came out, and what's off about it? Don't tell me what you want instead yet, tell me what's wrong with what you got."
 
 Then ask:
 "Is the problem with what it does, how it does it, or what it doesn't do at all?"

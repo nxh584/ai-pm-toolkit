@@ -20,7 +20,7 @@
 - Quote 2: "..."
 
 ## 6. Their Mental Model
-[What do they assume the product should do? What real-world analog are they comparing you to? e.g., "They treat our CRM like an email inbox—they want to mark things read, snooze them, and hit zero."]
+[What do they assume the product should do? What real-world analog are they comparing you to? e.g., "They treat our CRM like an email inbox; they want to mark things read, snooze them, and hit zero."]
 
 ## 7. Success for Them
 [What does a successful outcome look like for this user specifically? e.g., "Spending 10 minutes less per day copy-pasting customer names into Stripe."]

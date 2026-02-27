@@ -1,4 +1,4 @@
-# AI PM Toolkit — Cheat Sheet
+# AI PM Toolkit: Cheat Sheet
 
 A single-page reference for everything in the toolkit. Keep this open while you work.
 
@@ -14,7 +14,7 @@ Use these inside **Cursor**, **Claude Code**, or **Windsurf** after copying the 
 | `/clarify-ambiguity` | Runs a structured Q&A to surface hidden assumptions and constraints in your problem |
 | `/problem-statement` | Guides you through writing a clear, specific problem statement |
 | `/first-pass-build` | Generates a first-pass prototype or plan based on the current context and problem |
-| `/review-output` | Structured evaluation of the agent's last output — what's good, what's off, what to change |
+| `/review-output` | Structured evaluation of the agent's last output: what's good, what's off, what to change |
 | `/ship-or-kill` | Runs a structured decision framework: is this worth continuing, and why? |
 
 ---
@@ -150,7 +150,7 @@ Common tasks and the fastest way to do them.
 ### "I need to define a problem clearly"
 1. Paste [`skills/problem-shaping.md`](./skills/problem-shaping.md) into your conversation  
 2. Say: "Help me define this problem: [your description]"  
-3. Let the agent ask questions — answer them honestly
+3. Let the agent ask questions and answer them honestly
 
 ### "I need to write a PRD fast"
 1. Paste your completed [`context-docs/project-context.md`](./context-docs/project-context.md) and [`templates/prd.md`](./templates/prd.md)  
@@ -161,14 +161,14 @@ Common tasks and the fastest way to do them.
 2. Paste [`prompts/research/synthesise-notes.md`](./prompts/research/synthesise-notes.md)  
 3. Say: "Apply this to my notes above."
 
-### "The agent's output isn't good enough — what do I improve?"
+### "The agent's output isn't good enough. What do I improve?"
 1. Run [`/review-output`](./commands/review-output.md) or paste [`prompts/evaluation/review-output.md`](./prompts/evaluation/review-output.md)  
-2. The agent will identify the gaps — usually: missing context or scope that was too broad
+2. The agent will identify the gaps. Usually: missing context or scope that was too broad
 
 ### "I want to start a really well-grounded session from scratch"
 1. Copy [`ide-setup/`](./ide-setup/) config for your IDE into your project  
 2. Fill in [`context-docs/user-context.md`](./context-docs/user-context.md) and [`context-docs/project-context.md`](./context-docs/project-context.md)  
-3. Run `/build-session` — it assembles everything into a single opening message
+3. Run `/build-session`, which assembles everything into a single opening message
 
 ---
 
@@ -176,6 +176,6 @@ Common tasks and the fastest way to do them.
 
 - **Precise problems get better output.** Fuzzy problem statements produce confident but wrong answers.
 - **Context is the main lever.** If the agent makes bad assumptions, your context doc was probably missing something.
-- **The first output is a starting point.** Evaluate it, note what's off, and iterate — don't just accept or reject.
+- **The first output is a starting point.** Evaluate it, note what's off, and iterate. Don't just accept or reject.
 - **Narrow scope on purpose.** One clear problem per session beats trying to solve three things at once.
 - **Skills shape behaviour.** Load a skill at the start of a session to change how the agent works, not just what it produces.

@@ -1,52 +1,62 @@
-# Slash Commands
+# Commands
 
-## What these are
+Commands are slash-invokable workflows you run inside an active agent session. Copy this `commands/` directory into your project root and invoke any command by name as you work.
 
-The files in this directory define reusable slash commands for day-to-day PM work inside an active agent session.
+---
 
-How they differ from `prompts/`:
-- Prompts are copy-paste openers for starting a new session.
-- Commands are in-session tools you invoke repeatedly as you work.
+## Commands vs. Prompts
 
-Use prompts when you are opening a fresh conversation. Use commands when the session is already running and you want a specific guided workflow.
+Both help structure your work with an AI agent, but they're used at different moments:
 
-## How to use them in Claude Code
+- **Prompts** (in [`prompts/`](../prompts/)) are for starting a fresh session. Paste one as your opening instruction and let it drive from the beginning.
+- **Commands** are for use once a session is already running. Invoke them to kick off a specific workflow step without breaking your current context.
+
+Rule of thumb: open a session with a prompt, use commands throughout.
+
+---
+
+## Setup
+
+### Claude Code
 
 1. Copy this `commands/` directory into the root of your working project.
 2. Open Claude Code in that project.
-3. Start or continue a session.
-4. Invoke a command by typing `/command-name` (for example `/clarify-ambiguity`).
+3. Type `/command-name` during any session to invoke it (e.g. `/clarify-ambiguity`).
 
 Claude Code automatically discovers markdown files in a top-level `commands/` directory and exposes them as slash commands.
 
-## How to use them in Cursor
+### Cursor
 
 1. Copy this `commands/` directory into your project root.
-2. Open Cursor in that project.
-3. Add command behaviour references in your `.cursorrules` if you want persistent command guidance, or invoke commands from Cursor's command palette/composer slash workflow.
-4. Run the command by name (for example `/first-pass-build`) during your session.
+2. Reference commands in your `.cursorrules` for persistent availability, or invoke them from Cursor's composer during a session.
+3. Type the command name (e.g. `/first-pass-build`) to run it.
 
-If your Cursor setup is team-shared, keep command names stable so everyone can rely on the same workflow language.
+> [!TIP]
+> If your Cursor setup is shared across a team, keep command names stable so everyone can rely on the same workflow language.
+
+---
 
 ## Command reference
 
-| Command | Description | When to reach for it |
+| Command | What it does | When to use it |
 |---|---|---|
-| `/problem-statement` | Conversationally shapes a vague problem into a clear problem statement. | When the problem is still fuzzy and needs tightening before any build work. |
-| `/first-pass-build` | Forces context check and scope confirmation before writing code. | When you are ready to prototype and want the smallest useful first version. |
-| `/build-session` | Assembles skill instructions, context, and task into one session brief. | At the start of focused PM work when you want a clean, context-rich kickoff. |
-| `/clarify-ambiguity` | Guides a one-question-at-a-time ambiguity-clearing conversation. | When the request is messy and you need to identify the real problem first. |
-| `/review-output` | Critiques generated output against real user and delivery reality. | Immediately after a prototype or draft is produced and needs an honest assessment. |
-| `/ship-or-kill` | Runs a structured go/no-go decision conversation with decision log output. | When a prototype exists and you need a firm decision, not another vague iteration. |
+| `/build-session` | Assembles a skill, context docs, and a prompt into one complete session opener | At the start of any focused session, when you want a clean, context-rich kickoff |
+| `/clarify-ambiguity` | Runs a guided one-question-at-a-time Q&A to surface hidden assumptions | When the request is messy or the real problem isn't clear yet |
+| `/problem-statement` | Shapes a rough idea into a specific, actionable problem statement | Before any build work, when the problem still needs tightening |
+| `/first-pass-build` | Confirms context and scope, then generates the smallest useful first version | When you're ready to prototype and want the agent to stay focused |
+| `/review-output` | Structured critique of the agent's last output against user needs and reality | Immediately after a prototype or draft is produced |
+| `/ship-or-kill` | Runs a go/no-go decision conversation and produces a decision log | When a prototype exists and you need a firm decision, not more iteration |
 
-## Adding your own
+---
 
-Community contributions for commands are welcome. Follow the contribution process in [CONTRIBUTING.md](../CONTRIBUTING.md).
+## Adding your own commands
 
-Custom commands should:
-- Use clear command identity (`# /your-command-name`).
+Contributions are welcome. See [CONTRIBUTING.md](../CONTRIBUTING.md) for the process.
+
+When writing a custom command:
+- Start with a clear command name as the `# /heading`.
 - Open with a concrete, answerable first question.
-- Guide the conversation one step at a time.
-- End with a directly usable output (decision, draft, or plan).
+- Guide the conversation one step at a time. Don't try to do everything at once.
+- End with a directly usable output: a decision, a draft, or a next action.
 
-You can keep custom commands in this same directory alongside the toolkit defaults.
+Custom commands can live in this same directory alongside the toolkit defaults.

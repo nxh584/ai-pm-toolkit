@@ -18,7 +18,7 @@
 [Focus on behaviour, not specific features. E.g., "A good solution feels invisible to the sales rep. They finish a call, and the notes magically appear in the right Salesforce record within 5 minutes."]
 
 ## Explicitly NOT Asking For
-[Defensive scoping. E.g., "We are NOT asking for a new 'Notes App' for reps to use. We are NOT asking for AI to rewrite the notes—just to move them."]
+[Defensive scoping. E.g., "We are NOT asking for a new 'Notes App' for reps to use. We are NOT asking for AI to rewrite the notes, just to move them."]
 
 ---
 

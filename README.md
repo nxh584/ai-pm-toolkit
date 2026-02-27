@@ -16,7 +16,7 @@ There's a shift in the product management landscape. The old cycle of writing sp
 
 You don't need to install anything, clone this repo, or understand how any of the tooling works to get immediate value.
 
-**All you need is an AI tool — [Claude](https://claude.ai) (free), [Cursor](https://cursor.com) (free tier), or anything similar.**
+**All you need is an AI tool: [Claude](https://claude.ai) (free), [Cursor](https://cursor.com) (free tier), or anything similar.**
 
 **Do this right now:**
 
@@ -33,14 +33,14 @@ That's it. No installation, no config, no code. You just turned your AI tool int
 **Ready to go deeper?**
 
 - The [QUICKSTART.md](./QUICKSTART.md) walks you through a focused 30-minute session that covers the full core workflow.
-- The [CHEAT_SHEET.md](./CHEAT_SHEET.md) is a single-page reference of every useful command, prompt, and template — keep it open while you work.
+- The [CHEAT_SHEET.md](./CHEAT_SHEET.md) is a single-page reference of every useful command, prompt, and template. Keep it open while you work.
 - The [commands/](./commands/) directory has slash commands for Claude Code and Cursor. Copy the folder into your project and type `/clarify-ambiguity` to start a guided session.
 
 ---
 
 ## What's in this toolkit
 
-Everything here is a plain text file — prompts, templates, and instructions. Use what you need and ignore the rest.
+Everything here is a plain text file: prompts, templates, and instructions. Use what you need and ignore the rest.
 
 ```text
 ai-pm-toolkit/
@@ -94,13 +94,13 @@ npx ai-pm-toolkit copy prompts/problem-shaping/clarify-ambiguity
 
 ## Philosophy
 
-This toolkit is deliberately modular. You don't need to adopt everything — grab what's useful for the problem you're working on today and leave the rest.
+This toolkit is deliberately modular. You don't need to adopt everything. Grab what's useful for the problem you're working on today and leave the rest.
 
 The three core skills it's designed to strengthen are:
 
-- **Problem shaping** — being precise about what you're actually trying to solve before involving an agent.
-- **Context curation** — giving the agent the right background so it doesn't have to guess (and guess wrong).
-- **Evaluation** — knowing how to judge agent output critically and iterate toward something useful.
+- **Problem shaping**: being precise about what you're actually trying to solve before involving an agent.
+- **Context curation**: giving the agent the right background so it doesn't have to guess (and guess wrong).
+- **Evaluation**: knowing how to judge agent output critically and iterate toward something useful.
 
 These will compound and this workflow will start to feel more natural than the old way very quickly.
 
@@ -112,7 +112,7 @@ These will compound and this workflow will start to feel more natural than the o
 
 ## MCP Server
 
-The toolkit ships an installable MCP server that exposes its prompts, skills, workflows, templates, and context docs directly inside MCP-compatible clients. Its headline feature is `build_session`, which assembles a complete, context-rich opening message from skill instructions, selected context docs, and a prompt — in a single call.
+The toolkit ships an installable MCP server that exposes its prompts, skills, workflows, templates, and context docs directly inside MCP-compatible clients. Its headline feature is `build_session`, which assembles a complete, context-rich opening message from skill instructions, selected context docs, and a prompt in a single call.
 
 If you're not using MCP yet, the [commands/](commands/) directory has manual equivalents of the same workflows, including [`/build-session`](commands/build-session.md). Setup and usage details are in [mcp-server/README.md](mcp-server/README.md).
 

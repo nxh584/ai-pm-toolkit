@@ -14,7 +14,7 @@ Adopt this as your weekly cadence. It optimises for building rapid prototypes mi
 
 - **Morning (1 hour): Update Context Docs** 
   - Read through support tickets submitted over the weekend. Did users hit edge cases we missed last week?
-  - Update `product-context.md` with any new hard constraints (e.g., "Engineering informed us we are migrating to Vercel next week—no new AWS Lambda deployments").
+  - Update `product-context.md` with any new hard constraints (e.g., "Engineering informed us we are migrating to Vercel next week, no new AWS Lambda deployments").
   - Update `user-context.md` if any macro behaviours shifted.
 - **Afternoon (1 hour): Problem Shaping**
   - Grab the top 3 priorities for the week.

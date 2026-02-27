@@ -1,39 +1,48 @@
-# AI PM Prompts
+# Prompts
 
-This directory contains ready-to-use prompts designed for different stages of the product development lifecycle. They are not meant to replace your thinking, but to structure your collaboration with an AI agent.
+Ready-to-use prompts for each stage of the product development process. These aren't meant to replace your thinking. They structure how you collaborate with an AI agent so you get more useful output at each stage.
 
-## How to Use These Prompts
+---
 
-Each prompt file follows a consistent structure:
-1. **When to use this**: The right moment to reach for the prompt.
-2. **What to feed it**: The context or inputs the agent needs to succeed.
-3. **The Prompt**: The exact text to paste into your agent session.
-4. **What to do with the output**: How to evaluate and iterate on the result.
-5. **Common failure modes**: What goes wrong and how to fix it.
+## How each prompt is structured
 
-Two prompts now use conversational loops inside the same structure:
+Every prompt file follows the same format:
+
+1. **When to use this**: the right moment to reach for it
+2. **What to feed it**: what context or inputs the agent needs
+3. **The prompt**: the exact text to paste into your session
+4. **What to do with the output**: how to evaluate and act on the result
+5. **Common failure modes**: what tends to go wrong and how to fix it
+
+Two prompts use a conversational loop format instead of producing one-shot output:
 - `problem-shaping/clarify-ambiguity.md`
 - `prototyping/course-correct.md`
 
-They still fit this format, but they instruct the agent to run guided back-and-forth instead of returning one-shot output.
+These follow the same structure but instruct the agent to guide a back-and-forth conversation rather than returning a single response.
 
-## Prompts vs. Commands — which to use?
+---
 
-Prompts in this directory are best for starting a new session. You paste one as your opening instruction set and let it drive the session from turn one.
+## Prompts vs. Commands
 
-Commands in [../commands/](../commands/) are for use within an active working session. You invoke them by name to run a specific workflow step without restarting context.
+- **Use prompts** when you're starting a fresh session. Paste one as your opening instruction and it sets the tone and structure for everything that follows.
+- **Use commands** (in [`commands/`](../commands/)) when a session is already running and you want to invoke a specific workflow step without restarting the conversation.
 
-Rule of thumb:
-- Use prompts when you're starting fresh.
-- Use commands when you're already mid-session.
+Some prompts have direct command equivalents:
+- `problem-shaping/clarify-ambiguity.md` → [`/clarify-ambiguity`](../commands/clarify-ambiguity.md)
+- `prototyping/course-correct.md` → [`/review-output`](../commands/review-output.md) followed by [`/first-pass-build`](../commands/first-pass-build.md)
 
-Equivalent in-session command alternatives include:
-- `clarify-ambiguity` prompt -> [`/clarify-ambiguity`](../commands/clarify-ambiguity.md)
-- `course-correct` prompt -> use [`/review-output`](../commands/review-output.md) followed by [`/first-pass-build`](../commands/first-pass-build.md) if needed
+---
 
 ## Categories
 
-- **[Problem Shaping](problem-shaping/)**: Prompts to clarify ambiguity, define success, and extract constraints. Use these when you have a loose idea but need to define the boundaries before building.
-- **[Prototyping](prototyping/)**: Prompts to guide the agent in building first-pass prototypes, parallel approaches, and course corrections. Use these to turn a shaped problem into a testable wedge.
-- **[Research](research/)**: Prompts to synthesise interviews, analyse competitors, and extract Jobs-to-be-Done. Use these to process qualitative data rigorously.
-- **[Evaluation](evaluation/)**: Prompts to review agent output and make structured ship-or-kill decisions. Use these to ensure what was built actually solved the user problem.
+### [Problem Shaping](problem-shaping/)
+Prompts for clarifying ambiguity, defining success criteria, and establishing the real scope of a problem. Use these before any building work, when you have an idea but aren't yet confident you're solving the right thing.
+
+### [Prototyping](prototyping/)
+Prompts to guide first-pass builds, explore parallel approaches, and course-correct when output veers off track. Use these to turn a shaped problem into a testable, minimal prototype.
+
+### [Research](research/)
+Prompts for synthesising interview notes, analysing the competitive landscape, and extracting Jobs-to-be-Done from qualitative data. Use these to process what you've learned without losing the nuance.
+
+### [Evaluation](evaluation/)
+Prompts for reviewing agent output critically and making structured ship-or-kill decisions. Use these to make sure what was built actually solves the user's problem, not just a version of it.
