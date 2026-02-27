@@ -6,7 +6,41 @@
 
 # AI PM Toolkit
 
-The `ai-pm-toolkit` is a comprehensive GitHub repository designed primarily for Product Managers who are looking to adopt an AI native workflow. The modern PM's bottleneck is quickly moving away from the cycle of translating requirements that get handed off to developers, reviewing, and then iterating on them, to PM's who are able to quickly prototype and validate themselves. This toolkit provides resources to quicky help you adopt the core skills of the AI-era PM: problem shaping, context curation, and evaluation, empowering you to effectively collaborate with AI agents and ship better products.
+The `ai-pm-toolkit` is a comprehensive GitHub repository designed primarily for Product Managers who are looking to adopt an AI native workflow. The modern PM's bottleneck is quickly moving away from the cycle of translating requirements that get handed off to developers, reviewing, and then iterating on them, to PM's who are able to quickly prototype and validate themselves. This toolkit provides resources to quickly help you adopt the core skills of the AI-era PM: problem shaping, context curation, and evaluation, empowering you to effectively collaborate with AI agents and ship better products.
+
+## Not a developer? Start here.
+
+You don't need to write code, clone this repo, or understand how any of the tooling works to get value from this toolkit. Everything here is text — prompts you paste into an AI tool, templates you copy into a doc, instructions you give to an agent.
+
+**The fastest path to value (under 5 minutes, no setup):**
+
+1. Install an AI tool if you don't have one. The toolkit works best with [Claude](https://claude.ai) (free tier is fine) or [Cursor](https://cursor.com) if you want the full experience. Both have free tiers.
+
+2. Open a new conversation and paste this to start:
+
+   > "I want to work on a product problem. Before I describe it,
+   > please read these instructions and confirm you understand
+   > them: [paste the contents of skills/problem-shaping.md]"
+
+   Not sure where to find that file? Run this in any terminal:
+
+   ```bash
+   npx ai-pm-toolkit get skills/problem-shaping
+   ```
+
+   Or just browse to it on GitHub and copy the raw text.
+
+3. Describe your problem. Let the agent ask you questions. Iterate.
+
+That's it. No installation. No config. No code.
+
+**When you're ready for more:**
+
+- The [commands/](./commands/) directory has slash commands that work in Claude Code and Cursor. Copy the whole directory into your project and type `/clarify-ambiguity` to start a guided problem-shaping session.
+- The [context-docs/](./context-docs/) templates help you get dramatically better output by giving the agent the right background before you start.
+- The [QUICKSTART.md](./QUICKSTART.md) walks through a 30-minute session that covers the core workflow end-to-end.
+
+The more of this you use, the more natural it becomes. Most PMs who engage with this toolkit seriously find that within a week, the workflow feels more natural than writing specs the old way.
 
 ## Philosophy
 
@@ -16,27 +50,36 @@ You do not need to adopt everything here to get value out of this toolkit. The a
 
 ```text
 ai-pm-toolkit/
-├── CONTRIBUTING.md # Contribution guide for prompts, skills, and workflows.
-├── CODE_OF_CONDUCT.md # Community behaviour expectations (Contributor Covenant 2.1).
-├── .github/       # PR template, issue forms, and automated contribution validation.
-├── ide-setup/     # IDE configurations (.cursorrules, CLAUDE.md, .windsurfrules) for PM-aware AI behaviour.
-├── context-docs/  # Templates for grounding agents with user, product, and project context.
-├── templates/     # Modern, lightweight PM document templates (PRD, Spec, Research Synthesis).
-├── prompts/       # Ready-to-paste prompts for problem shaping, prototyping, research, and evaluation.
-├── skills/        # Instruction sets to make your AI agent adopt specific PM mindsets.
-├── workflows/     # Step-by-step playbooks for real work sessions (e.g., zero-to-prototype).
-├── mcp-server/    # Installable MCP server exposing toolkit tools inside Claude Code and Cursor.
-└── examples/      # Fully worked, annotated examples showing the toolkit in action.
+│
+├── 📄 README.md
+├── 📄 QUICKSTART.md
+├── 📄 CONTRIBUTING.md
+│
+├── ⚙️  ide-setup/           # Drop-in config files for Cursor, Claude Code, Windsurf
+├── 🗂️  context-docs/        # Templates for feeding rich context to agents
+├── 📋 templates/            # PM artefact templates (PRD, spec, problem statement)
+├── 🤖 prompts/              # Reusable prompts organised by workflow stage
+├── 💬 commands/             # Slash commands for in-session use in Claude Code + Cursor
+├── 🧠 skills/               # Agent instruction sets for PM-mode behaviour
+├── 🔄 workflows/            # End-to-end playbooks for common PM tasks
+├── 💡 examples/             # Fully worked, annotated examples
+├── 🖥️  cli/                  # npx CLI for discovering and copying toolkit content
+└── 🔌 mcp-server/           # Python MCP server for Claude Code integration
 ```
 
 ## Start Here
 
 Depending on what you want to achieve today, jump into the right section:
 
-- **"I want to build something today"** → Check out the [QUICKSTART.md](QUICKSTART.md) and the [zero-to-prototype workflow](workflows/zero-to-prototype.md).
-- **"I use Cursor, Claude Code, or Windsurf"** → Head to the [ide-setup/](ide-setup/) directory to grab the right configuration file for your environment.
-- **"I want templates for my PM docs"** → Browse the [templates/](templates/) directory for lightweight, AI-era formats.
-- **"I want to contribute prompts, skills, or workflows"** → Start with [CONTRIBUTING.md](CONTRIBUTING.md), then use the issue templates and PR template in [.github/](.github/).
+- **"I want to build something today"** → Start with [QUICKSTART.md](QUICKSTART.md), then run the [zero-to-prototype workflow](workflows/zero-to-prototype.md), and use [`/first-pass-build`](commands/first-pass-build.md) when you are ready to generate the first implementation.
+- **"I use Cursor, Claude Code, or Windsurf"** → Go to [ide-setup/](ide-setup/) for environment rules, then copy [commands/](commands/) into your project for reusable in-session slash workflows.
+- **"I want templates for my PM docs"** → Use [templates/](templates/) for artefact structure and [prompts/](prompts/) to drive each stage of the work.
+- **"I just want to try one thing right now"** → No clone required. Run:
+  ```bash
+  npx ai-pm-toolkit list prompts
+  npx ai-pm-toolkit search "clarify"
+  npx ai-pm-toolkit copy prompts/problem-shaping/clarify-ambiguity
+  ```
 
 ## IDE Setup
 
@@ -44,8 +87,8 @@ The [ide-setup/](ide-setup/) directory includes ready-to-use configuration files
 
 ## MCP Server
 
-The toolkit now includes an installable MCP server that brings prompts, skills, workflows, templates, and project context docs directly into MCP-compatible clients. Its headline feature is `build_session`, which assembles a full, context-rich opening message by combining skill instructions, selected context docs, and a prompt in one call. This removes manual copy-pasting and helps you start each session with the right context from the beginning. For setup and usage, see [mcp-server/README.md](mcp-server/README.md).
+The toolkit includes an installable MCP server that brings prompts, skills, workflows, templates, and project context docs directly into MCP-compatible clients. Its headline feature is `build_session`, which assembles a full, context-rich opening message by combining skill instructions, selected context docs, and a prompt in one call. If you are not using MCP yet, the [commands/](commands/) directory gives you interactive manual equivalents of the same workflows, including [`/build-session`](commands/build-session.md). For setup and usage, see [mcp-server/README.md](mcp-server/README.md).
 
 ## Contributing
 
-If you want to contribute new prompts, skills, or workflows, start with [CONTRIBUTING.md](CONTRIBUTING.md) for contribution scope, file format requirements, and review criteria.
+If you want to contribute new prompts, skills, workflows, or slash commands, start with [CONTRIBUTING.md](CONTRIBUTING.md) for contribution scope, file format requirements, and review criteria.

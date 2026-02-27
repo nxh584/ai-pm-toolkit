@@ -12,6 +12,12 @@ This server exposes five tools:
 - `get_skill`: Load a specific skill file as behavioural instructions for the current session.
 - `get_context`: Load `user`, `product`, or `project` context docs from your current project directory.
 
+## Not using the MCP server?
+
+If you're not set up with the MCP server yet, use the [../commands/](../commands/) directory in the main toolkit. Those slash commands provide interactive manual versions of the same workflows inside Claude Code and Cursor.
+
+The [`/build-session`](../commands/build-session.md) command is the manual equivalent of the MCP `build_session` tool. Start there, and add the MCP server later when you want automated context injection.
+
 ## Prerequisites
 
 - Python 3.10+

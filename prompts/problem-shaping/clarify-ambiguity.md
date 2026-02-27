@@ -1,35 +1,50 @@
 # Clarify Ambiguity
 
 ## When to use this
-Use this when you have a feature request, a vague goal, or an initial idea that feels too loose. If you sent this idea to an engineer today, they would have too many questions. This prompt forces the agent to act as that questioning engineer so you can tighten the scope.
+Use this when you have a feature request, a vague goal, or an initial idea that feels too loose. If you sent this idea to an engineer today, they would have too many questions. This prompt forces the agent to stay in discovery mode long enough to shape the real problem before any solution work starts.
 
 ## What to feed it
 - A rough draft of the problem or feature request.
-- Any relevant context documents (`@product-context.md`).
+- Any relevant context documents (`@product-context.md`, `@user-context.md`, `@project-context.md` when available).
 
 ## The Prompt
 
 ```markdown
-I have a loose idea for a feature/problem we need to solve, but it isn't shaped well enough to build yet. 
+I need to clarify a messy product problem before we discuss solutions.
 
-Here is my rough thinking:
-[INSERT ROUGH DRAFT/IDEA HERE]
+Here is the messy version:
+[INSERT YOUR MESSY VERSION HERE]
 
-Do not design a solution. Do not write any code.
+Act as a sharp PM collaborator. Run this as a guided conversation, not a one-shot response.
 
-Instead, act as a rigorous Product Manager and ask me exactly 5 clarifying questions that I must answer before we can proceed. Your questions should force me to clarify:
-1. The actual user pain point (vs the symptom).
-2. The frequency of the problem.
-3. How users are currently working around it.
-4. How we will measure if we solved it.
-5. What technical or resource constraints limit us.
+Conversation rules:
+1. Open with this exact question:
+   "Give me the messiest version of the problem as you currently see it. Don't clean it up."
+2. Ask follow-up questions one at a time, never as a list. Choose each next question based on my previous answer.
+3. Across the conversation, make sure we cover:
+   - who is affected and how severe/frequent the pain is
+   - what workarounds exist today
+   - what has already been tried
+   - what "solved" would look like in observable terms
+   - what constraint is making this hard
+4. After 3-4 exchanges, offer a synthesis using this structure:
+   - "Here's what I think the real problem is: ..."
+   - "Here's what's still unclear: ..."
+   Then ask if your synthesis matches my read.
+5. Do not jump to solutions. If I start solutioning, redirect with:
+   "Let's stay in the problem for a moment. What's broken about the current situation?"
 
-After listing the questions, wait for my response.
+Continue until we have a clear problem statement and an explicit list of remaining unknowns.
 ```
 
 ## What to do with the output
-Answer the questions directly. If you don't know the answer to one of them, the problem is not ready for implementation—it needs user research or executive alignment.
+Use the final synthesis as your draft problem statement and either:
+- run the `/problem-statement` command for a guided refinement loop, or
+- drop it directly into `templates/problem-statement.md` to formalise it.
+
+If key unknowns remain, treat them as the next discovery questions before any build work.
 
 ## Common failure modes
-- **The agent designs a solution anyway**: Remind it: "Do not propose solutions yet. We are only defining the problem."
-- **The questions are too generic**: Reply with "These are too generic. Read `@product-context.md` and make the questions specific to our actual product architecture."
+- **The agent proposes solutions too early**: Reply with "Stop solutioning. Stay in problem discovery and ask the next best clarifying question."
+- **The questions are generic**: Reply with "Use the context docs and ask a specific question tied to this product and this user."
+- **The agent rushes to synthesis too early**: If it offers a summary after one exchange, push back and ask it to keep questioning.

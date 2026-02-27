@@ -1,0 +1,29 @@
+{
+  "name": "ai-pm-toolkit",
+  "version": "1.0.0",
+  "description": "CLI for the AI PM Toolkit — discover and use PM prompts, skills, and workflows from your terminal",
+  "type": "module",
+  "bin": {
+    "ai-pm-toolkit": "./bin/ai-pm-toolkit.js"
+  },
+  "scripts": {
+    "test": "node bin/ai-pm-toolkit.js list"
+  },
+  "dependencies": {
+    "chalk": "^5.0.0",
+    "clipboardy": "^4.0.0",
+    "commander": "^12.0.0",
+    "ora": "^8.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "product-management",
+    "ai",
+    "prompts",
+    "llm",
+    "toolkit"
+  ],
+  "license": "MIT"
+}
