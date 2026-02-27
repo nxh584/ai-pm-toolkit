@@ -25,6 +25,7 @@ ai-pm-toolkit/
 ├── prompts/       # Ready-to-paste prompts for problem shaping, prototyping, research, and evaluation.
 ├── skills/        # Instruction sets to make your AI agent adopt specific PM mindsets.
 ├── workflows/     # Step-by-step playbooks for real work sessions (e.g., zero-to-prototype).
+├── mcp-server/    # Installable MCP server exposing toolkit tools inside Claude Code and Cursor.
 └── examples/      # Fully worked, annotated examples showing the toolkit in action.
 ```
 
