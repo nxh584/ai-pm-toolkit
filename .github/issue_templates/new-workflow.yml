@@ -1,0 +1,55 @@
+name: New Workflow Proposal
+description: Propose a new workflow for the toolkit
+labels: ["workflow", "needs-review"]
+body:
+  - type: input
+    id: workflow_name
+    attributes:
+      label: Workflow name
+      placeholder: Example - Discovery Debrief to Experiment Plan
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome_duration
+    attributes:
+      label: What does this accomplish and how long does it take?
+      placeholder: Turns raw discovery notes into an experiment brief in about 90 minutes.
+    validations:
+      required: true
+
+  - type: textarea
+    id: trigger
+    attributes:
+      label: What triggers this workflow?
+      description: Describe the PM situation that calls for it.
+      placeholder: Use when discovery has surfaced a likely opportunity but solution shape is still unclear.
+    validations:
+      required: true
+
+  - type: textarea
+    id: components
+    attributes:
+      label: Which existing toolkit components does it use?
+      description: Must reference at least two existing prompts, skills, or templates.
+      placeholder: prompts/research/interview-synthesis.md + skills/problem-shaping.md
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tested
+    attributes:
+      label: Have you run this workflow yourself?
+      options:
+        - Yes
+        - No
+    validations:
+      required: true
+
+  - type: textarea
+    id: shipped_or_decided
+    attributes:
+      label: What did you ship or decide at the end of it?
+      placeholder: We shipped a scoped prototype and dropped two low-value requirements.
+    validations:
+      required: true

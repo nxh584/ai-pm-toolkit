@@ -1,0 +1,64 @@
+name: New Skill Proposal
+description: Propose a new skill for the toolkit
+labels: ["skill", "needs-review"]
+body:
+  - type: input
+    id: skill_name
+    attributes:
+      label: Skill name
+      description: Use a concise capability-oriented name.
+      placeholder: Example - Stakeholder Alignment
+    validations:
+      required: true
+
+  - type: textarea
+    id: capability
+    attributes:
+      label: What PM capability does this build?
+      placeholder: Helps the agent surface alignment risks before implementation starts.
+    validations:
+      required: true
+
+  - type: textarea
+    id: load_moment
+    attributes:
+      label: When should an agent load this skill?
+      description: Describe the exact task type or PM moment.
+      placeholder: Use when preparing a spec handoff that spans product, design, and engineering.
+    validations:
+      required: true
+
+  - type: textarea
+    id: behavior_change
+    attributes:
+      label: How does this change agent behavior?
+      description: Explain what the agent does differently when this skill is loaded.
+      placeholder: The agent asks for unresolved tradeoffs and forces explicit owner decisions.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: tested
+    attributes:
+      label: Have you tested this?
+      options:
+        - Yes, here's what it produced
+        - No, proposing for community input
+    validations:
+      required: true
+
+  - type: textarea
+    id: tested_output
+    attributes:
+      label: What it produced (if tested)
+      description: Share a short excerpt or summary of the output.
+    validations:
+      required: false
+
+  - type: textarea
+    id: gap
+    attributes:
+      label: Why doesn't an existing skill cover this?
+      description: Link skill(s) you reviewed and explain the gap.
+    validations:
+      required: true

@@ -1,0 +1,234 @@
+name: Validate Contribution Structure
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate changed files and branch rules
+        id: validate
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          node - <<'NODE'
+          const fs = require('fs');
+          const cp = require('child_process');
+
+          const requiredHeadings = {
+            prompts: [
+              '## When to use this',
+              '## What to feed it',
+              '## The Prompt',
+              '## What to do with the output',
+              '## Common failure modes'
+            ],
+            skills: [
+              '## What this skill does',
+              '## When to load this skill',
+              '## Instructions for the agent',
+              '## Output format',
+              '## Quality checks'
+            ],
+            workflows: [
+              '## What this is',
+              '## When to use it',
+              '## What you need before starting',
+              '## What good output looks like',
+              '## Common failure modes'
+            ]
+          };
+
+          const placeholders = ['TODO', 'FIXME', '[PLACEHOLDER]'];
+          const errors = [];
+          const warnings = [];
+
+          function run(cmd) {
+            return cp.execSync(cmd, { encoding: 'utf8' }).trim();
+          }
+
+          const base = process.env.BASE_SHA;
+          const head = process.env.HEAD_SHA;
+          const branch = process.env.HEAD_REF || '';
+          const diffOut = run(`git diff --name-status ${base} ${head}`);
+          const changed = diffOut
+            ? diffOut.split('\n').map((line) => {
+                const [status, ...rest] = line.split('\t');
+                const file = rest[rest.length - 1];
+                return { status, file };
+              })
+            : [];
+
+          const addedFiles = changed.filter((f) => f.status === 'A').map((f) => f.file);
+
+          const hasPromptFiles = addedFiles.some((f) => f.startsWith('prompts/'));
+          const hasSkillFiles = addedFiles.some((f) => f.startsWith('skills/'));
+          const hasWorkflowFiles = addedFiles.some((f) => f.startsWith('workflows/'));
+
+          if (hasPromptFiles && !branch.startsWith('prompt/')) {
+            errors.push(`Branch name must start with \`prompt/\` when adding files under \`prompts/\`. Current branch: \`${branch}\`.`);
+          }
+          if (hasSkillFiles && !branch.startsWith('skill/')) {
+            errors.push(`Branch name must start with \`skill/\` when adding files under \`skills/\`. Current branch: \`${branch}\`.`);
+          }
+          if (hasWorkflowFiles && !branch.startsWith('workflow/')) {
+            errors.push(`Branch name must start with \`workflow/\` when adding files under \`workflows/\`. Current branch: \`${branch}\`.`);
+          }
+
+          const activeKinds = [hasPromptFiles, hasSkillFiles, hasWorkflowFiles].filter(Boolean).length;
+          if (activeKinds > 1) {
+            warnings.push('This PR adds multiple contribution types. Consider splitting by type for faster review.');
+          }
+
+          const relevantChangedFiles = changed
+            .map((f) => f.file)
+            .filter((file) => ['prompts/', 'skills/', 'workflows/'].some((root) => file.startsWith(root)))
+            .filter((file) => fs.existsSync(file) && fs.statSync(file).isFile());
+          const relevantAddedFiles = addedFiles
+            .filter((file) => ['prompts/', 'skills/', 'workflows/'].some((root) => file.startsWith(root)))
+            .filter((file) => fs.existsSync(file) && fs.statSync(file).isFile());
+
+          for (const file of relevantChangedFiles) {
+            const text = fs.readFileSync(file, 'utf8');
+
+            for (const token of placeholders) {
+              if (text.includes(token)) {
+                errors.push(`${file}: contains placeholder token \`${token}\`.`);
+              }
+            }
+
+          }
+
+          for (const file of relevantAddedFiles) {
+            const text = fs.readFileSync(file, 'utf8');
+
+            if (file.startsWith('prompts/')) {
+              for (const heading of requiredHeadings.prompts) {
+                if (!text.includes(heading)) {
+                  errors.push(`${file}: missing required heading \`${heading}\`.`);
+                }
+              }
+            } else if (file.startsWith('skills/')) {
+              for (const heading of requiredHeadings.skills) {
+                if (!text.includes(heading)) {
+                  errors.push(`${file}: missing required heading \`${heading}\`.`);
+                }
+              }
+            } else if (file.startsWith('workflows/')) {
+              for (const heading of requiredHeadings.workflows) {
+                if (!text.includes(heading)) {
+                  errors.push(`${file}: missing required heading \`${heading}\`.`);
+                }
+              }
+              const hasStep = /^## Step \d+: /m.test(text);
+              if (!hasStep) {
+                errors.push(`${file}: must include step headings such as \`## Step 1: ...\`.`);
+              }
+            }
+          }
+
+          const summaryLines = [];
+          summaryLines.push('## Contribution Validation Report');
+          summaryLines.push('');
+          summaryLines.push(`- Branch: \`${branch || 'unknown'}\``);
+          summaryLines.push(`- Changed files checked: ${relevantChangedFiles.length}`);
+          summaryLines.push('');
+
+          if (errors.length === 0) {
+            summaryLines.push('### Status: PASS');
+            summaryLines.push('All required checks passed.');
+          } else {
+            summaryLines.push('### Status: FAIL');
+            summaryLines.push('The following issues must be fixed:');
+            for (const e of errors) {
+              summaryLines.push(`- ${e}`);
+            }
+          }
+
+          if (warnings.length > 0) {
+            summaryLines.push('');
+            summaryLines.push('### Warnings');
+            for (const w of warnings) {
+              summaryLines.push(`- ${w}`);
+            }
+          }
+
+          const summary = summaryLines.join('\n');
+          fs.writeFileSync('validation-report.md', summary + '\n');
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, summary + '\n');
+
+          const output = [
+            `passed=${errors.length === 0 ? 'true' : 'false'}`,
+            'report<<EOF',
+            summary,
+            'EOF'
+          ].join('\n');
+          fs.appendFileSync(process.env.GITHUB_OUTPUT, output + '\n');
+
+          if (errors.length > 0) {
+            process.exit(1);
+          }
+          NODE
+
+      - name: Comment validation summary on PR
+        if: always()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = 'validation-report.md';
+            const body = fs.existsSync(path)
+              ? fs.readFileSync(path, 'utf8')
+              : '## Contribution Validation Report\n\nValidation did not produce a report.';
+
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+
+            const marker = '<!-- ai-pm-toolkit-structure-validation -->';
+            const finalBody = `${marker}\n${body}`;
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner,
+              repo,
+              issue_number,
+              per_page: 100
+            });
+
+            const existing = comments.find((c) => c.body && c.body.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: existing.id,
+                body: finalBody
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body: finalBody
+              });
+            }
+
+      - name: Fail job if validation failed
+        if: steps.validate.outputs.passed != 'true'
+        run: exit 1

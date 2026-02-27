@@ -1,0 +1,68 @@
+name: New Prompt Proposal
+description: Propose a new prompt for the toolkit
+labels: ["prompt", "needs-review"]
+body:
+  - type: input
+    id: prompt_name
+    attributes:
+      label: Prompt name
+      description: Use a concise, action-oriented name.
+      placeholder: Example - Decision Log Extractor
+    validations:
+      required: true
+
+  - type: dropdown
+    id: workflow_category
+    attributes:
+      label: Which workflow category?
+      options:
+        - problem-shaping
+        - prototyping
+        - research
+        - evaluation
+    validations:
+      required: true
+
+  - type: textarea
+    id: pm_moment
+    attributes:
+      label: What PM moment is this for?
+      description: Describe the exact situation where you'd reach for this prompt.
+      placeholder: We just finished five interviews and need a fast synthesis before roadmap review tomorrow.
+    validations:
+      required: true
+
+  - type: textarea
+    id: agent_input
+    attributes:
+      label: What do you feed the agent?
+      description: Describe the context and inputs required for useful output.
+      placeholder: Interview transcripts, target segment notes, and a draft hypothesis.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: tested
+    attributes:
+      label: Have you tested a version of this?
+      options:
+        - Yes, here's what it produced
+        - No, proposing for community input
+    validations:
+      required: true
+
+  - type: textarea
+    id: tested_output
+    attributes:
+      label: What it produced (if tested)
+      description: Share a short excerpt or summary of the output.
+    validations:
+      required: false
+
+  - type: textarea
+    id: gap
+    attributes:
+      label: Why doesn't an existing prompt cover this?
+      description: Link any prompt(s) you reviewed and explain the gap.
+    validations:
+      required: true
