@@ -80,7 +80,7 @@ async function listSection(section) {
 
 function countBySection(items) {
   return items.reduce((acc, item) => {
-    const key = item.section;
+    const key = item.section.startsWith('prompts/') ? 'prompts' : item.section;
     acc[key] = (acc[key] || 0) + 1;
     return acc;
   }, {});

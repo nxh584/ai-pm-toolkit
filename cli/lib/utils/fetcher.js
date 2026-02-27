@@ -169,24 +169,38 @@ export async function fetchMarkdownDescription(path, section = 'generic') {
   }
 
   function firstMeaningfulParagraph() {
-    const contentLines = lines.filter((line) => line.trim().length > 0);
     const bucket = [];
+    let inCodeBlock = false;
 
-    for (const raw of contentLines) {
+    for (const raw of lines) {
       const line = raw.trim();
-      if (line.startsWith('#') || line.startsWith('```') || line.startsWith('|---')) {
+
+      if (line.startsWith('```')) {
+        inCodeBlock = !inCodeBlock;
         continue;
       }
-      if (line.startsWith('|') && line.includes('|')) {
+      if (inCodeBlock) {
         continue;
       }
-      if (line.startsWith('- ') || line.startsWith('* ')) {
-        const stripped = line.slice(2).trim();
-        if (stripped) {
-          return stripped;
+
+      if (!line) {
+        if (bucket.length) {
+          break;
         }
         continue;
       }
+
+      if (line.startsWith('#') || line.startsWith('|') || line.startsWith('>')) {
+        continue;
+      }
+
+      if (/^(-|\*)\s+/.test(line) || /^\d+\.\s+/.test(line)) {
+        if (bucket.length) {
+          break;
+        }
+        continue;
+      }
+
       bucket.push(line);
       if (bucket.length >= 2) {
         break;

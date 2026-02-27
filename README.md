@@ -50,21 +50,21 @@ You do not need to adopt everything here to get value out of this toolkit. The a
 
 ```text
 ai-pm-toolkit/
-│
-├── 📄 README.md
-├── 📄 QUICKSTART.md
-├── 📄 CONTRIBUTING.md
-│
-├── ⚙️  ide-setup/           # Drop-in config files for Cursor, Claude Code, Windsurf
-├── 🗂️  context-docs/        # Templates for feeding rich context to agents
-├── 📋 templates/            # PM artefact templates (PRD, spec, problem statement)
-├── 🤖 prompts/              # Reusable prompts organised by workflow stage
-├── 💬 commands/             # Slash commands for in-session use in Claude Code + Cursor
-├── 🧠 skills/               # Agent instruction sets for PM-mode behaviour
-├── 🔄 workflows/            # End-to-end playbooks for common PM tasks
-├── 💡 examples/             # Fully worked, annotated examples
-├── 🖥️  cli/                  # npx CLI for discovering and copying toolkit content
-└── 🔌 mcp-server/           # Python MCP server for Claude Code integration
+├── README.md            # Main project overview and onboarding paths
+├── QUICKSTART.md        # 30-minute guided setup and first workflow
+├── CONTRIBUTING.md      # Contribution scope, standards, and process
+├── CODE_OF_CONDUCT.md   # Community conduct expectations
+├── .github/             # PR templates, issue forms, and repo automation
+├── ide-setup/           # Drop-in config files for Cursor, Claude Code, and Windsurf
+├── context-docs/        # Templates for feeding rich context to agents
+├── templates/           # PM artefact templates (PRD, spec, problem statement)
+├── prompts/             # Reusable prompts organised by workflow stage
+├── commands/            # Slash commands for in-session use in Claude Code and Cursor
+├── skills/              # Agent instruction sets for PM-mode behaviour
+├── workflows/           # End-to-end playbooks for common PM tasks
+├── examples/            # Fully worked, annotated examples
+├── cli/                 # npx CLI for discovering and copying toolkit content
+└── mcp-server/          # Python MCP server for Claude Code integration
 ```
 
 ## Start Here
