@@ -16,6 +16,9 @@ You do not need to adopt everything here to get value out of this toolkit. The a
 
 ```text
 ai-pm-toolkit/
+├── CONTRIBUTING.md # Contribution guide for prompts, skills, and workflows.
+├── CODE_OF_CONDUCT.md # Community behaviour expectations (Contributor Covenant 2.1).
+├── .github/       # PR template, issue forms, and automated contribution validation.
 ├── ide-setup/     # IDE configurations (.cursorrules, CLAUDE.md, .windsurfrules) for PM-aware AI behaviour.
 ├── context-docs/  # Templates for grounding agents with user, product, and project context.
 ├── templates/     # Modern, lightweight PM document templates (PRD, Spec, Research Synthesis).
@@ -32,3 +35,4 @@ Depending on what you want to achieve today, jump into the right section:
 - **"I want to build something today"** → Check out the [QUICKSTART.md](QUICKSTART.md) and the [zero-to-prototype workflow](workflows/zero-to-prototype.md).
 - **"I use Cursor, Claude Code, or Windsurf"** → Head to the [ide-setup/](ide-setup/) directory to grab the right configuration file for your environment.
 - **"I want templates for my PM docs"** → Browse the [templates/](templates/) directory for lightweight, AI-era formats.
+- **"I want to contribute prompts, skills, or workflows"** → Start with [CONTRIBUTING.md](CONTRIBUTING.md), then use the issue templates and PR template in [.github/](.github/).
