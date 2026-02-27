@@ -36,3 +36,15 @@ Depending on what you want to achieve today, jump into the right section:
 - **"I use Cursor, Claude Code, or Windsurf"** → Head to the [ide-setup/](ide-setup/) directory to grab the right configuration file for your environment.
 - **"I want templates for my PM docs"** → Browse the [templates/](templates/) directory for lightweight, AI-era formats.
 - **"I want to contribute prompts, skills, or workflows"** → Start with [CONTRIBUTING.md](CONTRIBUTING.md), then use the issue templates and PR template in [.github/](.github/).
+
+## IDE Setup
+
+The [ide-setup/](ide-setup/) directory includes ready-to-use configuration files for Cursor, Claude Code, and Windsurf. These files are designed to make your AI agent behave more like a PM collaborator and less like a generic coding assistant.
+
+## MCP Server
+
+The toolkit now includes an installable MCP server that brings prompts, skills, workflows, templates, and project context docs directly into MCP-compatible clients. Its headline feature is `build_session`, which assembles a full, context-rich opening message by combining skill instructions, selected context docs, and a prompt in one call. This removes manual copy-pasting and helps you start each session with the right context from the beginning. For setup and usage, see [mcp-server/README.md](mcp-server/README.md).
+
+## Contributing
+
+If you want to contribute new prompts, skills, or workflows, start with [CONTRIBUTING.md](CONTRIBUTING.md) for contribution scope, file format requirements, and review criteria.
