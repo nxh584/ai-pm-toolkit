@@ -46,14 +46,18 @@ install_server() {
 }
 
 verify_install() {
-  if command -v ai-pm-toolkit-mcp >/dev/null 2>&1; then
-    print_info "Install verified: ai-pm-toolkit-mcp is available on PATH."
-    return
+  if ! command -v ai-pm-toolkit-mcp >/dev/null 2>&1; then
+    print_error "Install completed but ai-pm-toolkit-mcp is not on PATH."
+    print_error "If you installed into a virtual environment, use that binary path in your MCP config."
+    exit 1
   fi
 
-  print_error "Install completed but ai-pm-toolkit-mcp is not on PATH."
-  print_error "If you installed into a virtual environment, use that binary path in your MCP config."
-  exit 1
+  if ! ai-pm-toolkit-mcp --help >/dev/null 2>&1; then
+    print_error "ai-pm-toolkit-mcp exists on PATH but did not pass --help check."
+    exit 1
+  fi
+
+  print_info "Install verified: ai-pm-toolkit-mcp responds successfully."
 }
 
 print_config() {

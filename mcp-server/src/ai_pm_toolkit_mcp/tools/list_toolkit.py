@@ -51,6 +51,10 @@ def _description_for_file(path: Path, section: str) -> str:
     return fallback or "No description available."
 
 
+def _filter_items(items: list[str]) -> list[str]:
+    return [item for item in items if item.casefold() != "readme"]
+
+
 def _render_prompts(root: Path) -> str:
     lines: list[str] = ["## Prompts"]
     for category in PROMPT_CATEGORIES:
@@ -58,7 +62,7 @@ def _render_prompts(root: Path) -> str:
         lines.append("")
         lines.append(f"### {category}")
         try:
-            items = list_markdown_files(category_dir)
+            items = _filter_items(list_markdown_files(category_dir))
         except FileNotFoundError:
             lines.append("- No prompts found.")
             continue
@@ -79,7 +83,7 @@ def _render_section(root: Path, section: str, heading: str) -> str:
     section_dir = root / section
 
     try:
-        items = list_markdown_files(section_dir)
+        items = _filter_items(list_markdown_files(section_dir))
     except FileNotFoundError:
         return "\n".join(lines + ["", "- No files found."])
 
