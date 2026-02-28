@@ -25,4 +25,4 @@ Each card is designed to work on its own. You do not need to read anything else 
 
 ## Moving to Level 2
 
-Once you've used a few of these cards, you'll start to notice that the context you provide at the start of each conversation makes a big difference to the output. Level 2 is about making that context persistent - setting up a workspace that remembers your product, your users, and how you like to work, so you're not starting from scratch every session. When that sounds useful, head to /claude-project-setup/
+Once you've used a few of these cards, you'll start to notice that the context you provide at the start of each conversation makes a big difference to the output. Level 2 is about making that context persistent - setting up a workspace that remembers your product, your users, and how you like to work, so you're not starting from scratch every session. When that sounds useful, head to [/toolkit/claude-project-setup/](../claude-project-setup/).

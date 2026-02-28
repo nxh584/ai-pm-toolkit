@@ -20,4 +20,4 @@ Follow the step-by-step instructions in [claude-project-guide.md](./claude-proje
 
 ## Moving to Level 3
 
-Once your Claude Project is set up, you'll notice the quality of your sessions improving significantly. The natural next step is an AI-native editor - a tool that lets you go from a well-formed problem to a working prototype in an afternoon, not just a document. If that sounds useful, head to /first-ide-session/ when you're ready.
+Once your Claude Project is set up, you'll notice the quality of your sessions improving significantly. The natural next step is an AI-native editor - a tool that lets you go from a well-formed problem to a working prototype in an afternoon, not just a document. If that sounds useful, head to [/toolkit/first-ide-session/](../first-ide-session/) when you're ready.

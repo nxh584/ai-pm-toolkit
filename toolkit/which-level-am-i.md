@@ -8,7 +8,7 @@ This toolkit has three levels, each designed for a different starting point. The
 
 You open a chat window when you need help with something specific. You type what you need, get an answer, and move on. You haven't set up any custom instructions, saved any prompts, or built any kind of repeatable workflow.
 
-Start with the no-code prompt cards. You'll get immediate value in under two minutes with no setup at all. See /no-code/
+Start with the no-code prompt cards. You'll get immediate value in under two minutes with no setup at all. See [/toolkit/no-code/](./no-code/)
 
 ## If this sounds like you: Level 2
 
@@ -16,7 +16,7 @@ Start with the no-code prompt cards. You'll get immediate value in under two min
 
 You've used AI enough to know it's useful, but every time you open it you're writing prompts from memory or starting fresh. You'd like a more consistent setup but the idea of using a code editor feels like a step too far right now.
 
-Start with the Claude Project setup. One 20-minute setup gives you a configured AI workspace that gets better with every session. See /claude-project-setup/
+Start with the Claude Project setup. One 20-minute setup gives you a configured AI workspace that gets better with every session. See [/toolkit/claude-project-setup/](./claude-project-setup/)
 
 ## If this sounds like you: Level 3
 
@@ -24,7 +24,7 @@ Start with the Claude Project setup. One 20-minute setup gives you a configured 
 
 You've heard about Cursor or Claude Code and understand roughly what they do, but you've never opened one and the idea feels intimidating. You're willing to spend an hour getting set up if someone walks you through it without assuming you know anything.
 
-Start with the first IDE session guide. It's written for exactly this moment and requires no prior experience. See /first-ide-session/
+Start with the first IDE session guide. It's written for exactly this moment and requires no prior experience. See [/toolkit/first-ide-session/](./first-ide-session/)
 
 ## If this sounds like you: Already using an IDE
 
