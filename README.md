@@ -8,6 +8,12 @@
 
 A practical toolkit for Product Managers who want to work effectively with AI agents. It gives you the prompts, templates, context documents, and structured workflows to move faster. From problem definition through to working prototypes without needing to write code yourself.
 
+## Where to start
+
+Not sure where to begin? Start with [toolkit/which-level-am-i.md](toolkit/which-level-am-i.md) - four questions that route you to the right starting point based on where you are today.
+
+Already using an AI editor? Jump straight to [ide-setup/](ide-setup/) and [QUICKSTART.md](QUICKSTART.md).
+
 There's a shift in the product management landscape. The old cycle of writing specs, handing them off, and waiting for reviews is being replaced by something faster: PMs who can shape problems precisely, give agents the right context, and evaluate output critically. This toolkit helps you build exactly those skills and incorporate them into your daily workflow. Take what you need to improve your process, don't feel obligated to use everything. This is a living document and will be updated regularly as the landscape evolves.
 
 ---
@@ -50,6 +56,11 @@ ai-pm-toolkit/
 ├── CONTRIBUTING.md        # How to contribute new content
 ├── CODE_OF_CONDUCT.md     # Community expectations
 ├── .github/               # PR templates, issue forms, and repo automation
+├── toolkit/               # Non-technical PM accessibility layer
+│   ├── no-code/              # Prompt cards for copy-paste use in any AI chat tool
+│   ├── claude-project-setup/ # Configure a persistent AI workspace in Claude or ChatGPT
+│   ├── first-ide-session/    # Step-by-step guide to your first session in Cursor
+│   └── which-level-am-i.md   # Not sure where to start? Begin here
 ├── ide-setup/             # Drop-in config files for Cursor, Claude Code, and Windsurf
 ├── context-docs/          # Templates for giving agents the right background
 ├── templates/             # PM document templates (PRD, spec, problem statement, etc.)
@@ -89,6 +100,12 @@ npx ai-pm-toolkit list prompts
 npx ai-pm-toolkit search "clarify"
 npx ai-pm-toolkit copy prompts/problem-shaping/clarify-ambiguity
 ```
+
+## Not a developer? Start here.
+
+You don't need to write code or configure anything technical to get value from this toolkit. Start with [toolkit/which-level-am-i.md](toolkit/which-level-am-i.md) to find your entry point, or go straight to [toolkit/no-code/](toolkit/no-code/) if you want something useful in the next two minutes.
+
+The toolkit is designed to grow with you. Start wherever feels natural. Every level has a clear path to the next one when you're ready.
 
 ---
 
