@@ -8,8 +8,6 @@ In Claude, open the sidebar and select **Projects**. Click **New Project**, then
 
 If you do not see Projects right away, look in the main navigation area first and then in any overflow menu.
 
-[screenshot: creating a new project]
-
 ## Step 2: Set your Project Instructions
 
 This is where you tell Claude how to behave in every conversation in this project.
@@ -46,8 +44,6 @@ so. If you need more information to give a useful answer,
 ask for it rather than guessing.
 ```
 
-[screenshot: project instructions field]
-
 ## Step 3: Add your context docs as Project Knowledge
 
 Project Knowledge is a set of files Claude reads at the start of every conversation in this project.
@@ -72,8 +68,6 @@ Do this in order:
    - What "Quality" Means Here: how your team defines good output
    - Current Known Unsolved Problems: important open issues you still need to solve
 
-[screenshot: adding files to Project Knowledge]
-
 From this point, every conversation in this project starts with Claude already knowing who you're building for and what the product context is. You don't need to explain it again.
 
 ## Step 4: Test your workspace
@@ -90,10 +84,6 @@ What to look for:
 
 If both happen, your workspace is configured correctly.
 
-[screenshot: first test conversation]
-
 ## Step 5: Save your first prompt card for this workspace
 
 The Level 1 prompt cards work better now because your project has context loaded. Open the problem statement card at [/toolkit/no-code/prompt-cards/problem-statement.md](../no-code/prompt-cards/problem-statement.md), paste it into this project, and compare the output quality to a generic chat.
-
-[screenshot: running first prompt card in project]
