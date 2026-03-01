@@ -1,5 +1,9 @@
 # Quickstart Guide
 
+**Prefer a guided setup?** Let your AI tool handle this for you instead. See the [automated setup](./README.md#the-fastest-way-to-get-started) in the README -- it is faster and requires no reading.
+
+---
+
 A focused 30-minute session to get from zero to a working first prototype, with your AI agent doing most of the heavy lifting.
 
 > [!NOTE]

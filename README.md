@@ -8,6 +8,28 @@
 
 A practical toolkit for Product Managers who want to work effectively with AI agents. It gives you the prompts, templates, context documents, and structured workflows to move faster. From problem definition through to working prototypes without needing to write code yourself.
 
+## The fastest way to get started
+
+Don't read the docs. Let your AI tool set this up for you.
+
+Click one of the links below to open a guided setup conversation in your AI tool of choice. It will ask you five questions, configure the right components for how you work, and generate a personalised MY-TOOLKIT.md file you can use to start any future session instantly.
+
+**[Set up with Claude](https://claude.ai/new?q=Read+https://raw.githubusercontent.com/nxh584/ai-pm-toolkit/main/SETUP.md+and+help+me+set+up+the+AI+PM+Toolkit)**
+
+**[Set up with Cursor](cursor://agent?prompt=Read+https://raw.githubusercontent.com/nxh584/ai-pm-toolkit/main/SETUP.md+and+help+me+set+up+the+AI+PM+Toolkit)**
+
+**[Set up with ChatGPT](https://chatgpt.com/?q=Read+https://raw.githubusercontent.com/nxh584/ai-pm-toolkit/main/SETUP.md+and+help+me+set+up+the+AI+PM+Toolkit)**
+
+Or copy this prompt and paste it into any AI tool:
+
+```
+Read https://raw.githubusercontent.com/nxh584/ai-pm-toolkit/main/SETUP.md and help me set up the AI PM Toolkit.
+```
+
+Prefer to set things up yourself? See [QUICKSTART.md](./QUICKSTART.md).
+
+---
+
 ## Where to start
 
 Not sure where to begin? Start with [toolkit/which-level-am-i.md](toolkit/which-level-am-i.md) - four questions that route you to the right starting point based on where you are today.

@@ -1,5 +1,17 @@
 # Which level am I?
 
+**The quickest option: automated setup**
+
+Not sure where to start or don't want to read through options? Paste this into Claude, ChatGPT, or Cursor:
+
+```
+Read https://raw.githubusercontent.com/nxh584/ai-pm-toolkit/main/SETUP.md and help me set up the AI PM Toolkit.
+```
+
+It will ask you five questions and configure everything for you. The level guide below is there if you prefer to understand the options first.
+
+---
+
 This toolkit has three levels, each designed for a different starting point. The right level is the one that feels immediately usable today, not the one that feels most ambitious. Start where you can take action right now.
 
 ## If this sounds like you: Level 1
